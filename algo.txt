@@ -1,0 +1,29 @@
+async function showAvailablePetitions() {
+  try {
+    // Récupérer l'adresse de l'utilisateur à l'aide de l'API de géolocalisation
+    const address = await getUserAddress();
+
+    // Déterminer la localisation de l'utilisateur en fonction de son adresse
+    let location;
+    if (address.city) {
+      location = "ville";
+    } else if (address.country) {
+      location = "pays";
+    } else {
+      location = "international";
+    }
+
+    // Afficher les pétitions disponibles en fonction de la localisation de l'utilisateur
+    if (location === "ville") {
+      // Afficher les pétitions locales disponibles
+    } else if (location === "pays") {
+      // Afficher les pétitions nationales disponibles
+    } else if (location === "international") {
+      // Afficher les pétitions internationales disponibles
+    } else {
+      // Aucune pétition n'est disponible pour cette localisation
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
