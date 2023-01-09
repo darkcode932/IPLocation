@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import petitionRoutes from './routes/petition.js'
 
 const express = require('express');
 const geoip = require('geoip-lite');
@@ -10,6 +11,7 @@ app.use(bodyParser.json());
 
 app.use('/api/auth', require('./routes/auth.js'));
 app.use('/api/register', require('./routes/registration.js'));
+app.use('/api/petitons', petitionRoutes);
 
 app.get('/api/location/:ip', (req, res) => {
   //Récupérer l'adresse IP de l'utilisateur à partir de la requête

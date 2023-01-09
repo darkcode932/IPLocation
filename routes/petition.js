@@ -7,13 +7,13 @@ const router = express.Router();
 //Toutes les routes pour gerer les petitons sont repertoriées ici
 
 //create
-router.post('/petitions', createPetition);
+router.post('/', createPetition);
 
 //get, obtain
-router.get('/petitions/:id', getPetition);
+router.get('/:id', getPetition);
 
 //update
-router.put('/petitions/:id', updatePetition);
+router.put('/:id', updatePetition);
 
 //delete
-router.delete('/petition/:id', deletePetition);
+router.delete('/:id', deletePetition);
