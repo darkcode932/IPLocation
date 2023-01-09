@@ -1,8 +1,15 @@
+import bodyParser from 'body-parser';
+
 const express = require('express');
 const geoip = require('geoip-lite');
 const port = 5000;
 
 const app = express();
+
+app.use(bodyParser.json());
+
+app.use('/api/auth', require('./routes/auth.js'));
+app.use('/api/register', require('./routes/registration.js'));
 
 app.get('/api/location/:ip', (req, res) => {
   //Récupérer l'adresse IP de l'utilisateur à partir de la requête
@@ -18,4 +25,4 @@ app.get('/api/location/:ip', (req, res) => {
   res.json(location);
 });
 
-app.listen(port, () => console.log(`API de Localisation écoutant sur le port ${port}`));
+app.listen(port, () => console.log(`API écoutant sur le port ${port}`));
